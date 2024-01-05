@@ -1,0 +1,176 @@
+* {
+    text-decoration: none;
+    
+}
+
+body{
+    overflow-x: hidden;
+    margin: 0%;
+    background-color: #0F1035;
+}
+
+
+.navbar {
+    background:  #0F1035; overflow-x: hidden; font-family: helvetica; padding-right: 15px; padding-left: 15px;
+
+}
+
+.navbar ul li a{
+    display: block;
+    color: #fefefe;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: 0.2s;
+    margin: 0 5px;
+   
+}
+
+.navbar ul li a:hover {
+    color: black;
+    background: #fefefe;
+}
+
+.navbar ul li a.active {
+    color: black;
+    background: #fefefe;
+}
+
+.navdiv {
+    display: flex; align-items: center; justify-content:center;
+}
+
+li {
+    list-style: none; display: inline-block;
+}
+
+li a{
+    color: white; font-size: 18px; font-weight: bold; margin-right: 35px;
+}
+
+
+section {
+    position: relative;
+    font-family: tahoma;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 200px;
+    padding: 100px 20vw;
+    color: white;
+
+}
+
+
+.bubble::after{
+    content: '';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    background-color: #B91646;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
+
+}
+
+.s1 {
+    color: black;
+    text-align: left;
+    background-color: #B91646;
+    font-size: 30px;
+}
+
+.s2 {
+    background-color: black;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    
+}
+
+.box1 {
+    background-color: black;
+    height: 350px;
+    width:50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+}
+
+.box1 h1 {
+    margin: 30px;
+    font-family: verdana;
+    font-size: 25px;
+    color: white;
+    padding: 150px;
+ 
+   
+   
+
+}
+
+.box2 {
+    background-color: black;
+    height: 350px;
+    width:50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  
+  
+}
+
+/* CSS ANIMATION 1 */
+
+.load {
+    position: relative ;
+    width: 150px;
+    height: 150px; 
+    border-radius: 50%;
+    background: linear-gradient(45deg,transparent, transparent 40%, #e5f403);
+    animation: animate 2s linear infinite;
+    
+
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        filter: hue-rotate(260deg);
+    }
+}
+
+.load:before {
+    content:'';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 1000;
+
+}
+
+.load:after {
+    content:'';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: linear-gradient(45deg,transparent, transparent 40%, #e5f403);
+    border-radius: 50%;
+    z-index: 1000;
+    z-index: 1;
+    filter: blur(30px)
+
+}

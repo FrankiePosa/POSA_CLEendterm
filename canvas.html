@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS</title>
+    <link rel="stylesheet" type="text/css" href="canvasstyle.css">
+    <script src="canvasjs.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <ul>
+                <li> <a href="homepage.html">Home</a></li>
+                <li> <a href="css.html">CSS</a></li>
+                <li> <a href="svg.html">SVG</a></li>
+                <li> <a href="canvas.html">CANVAS</a></li>
+                <li> <a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+
+    <section class="s1">
+        <h1> Up, down, left, right... but never out of bounds. </h1>
+    </section>
+    <section>
+   
+        <canvas id="bounce" width="300px" height="300px" style="border: solid 1px"></canvas>  </section>
+
+        <script>
+	
+            var canvas = document.getElementById("bounce").getContext("2d");
+            
+          
+            var HEIGHT = 300;
+            var WIDTH = 300;
+            var ballrad = 10;	
+            
+           
+            var ball = {
+                            x : Math.abs(getRandom(2, 200)),
+                            y : Math.abs(getRandom(2, 200)),
+                            dx : Math.abs(getRandom(1,5)),
+                            dy : Math.abs(getRandom(1,5)),
+                            radius : 10,
+                            color : '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),
+                            time : 0
+                            }
+            
+            function draw() {
+               
+                clear();
+                
+                circle(ball.x, ball.y, ball.radius, ball.color);
+                
+          
+                if(ball.x + ball.dx + ballrad > WIDTH  || ball.x + ball.dx - ballrad < 0)
+                    ball.dx = -ball.dx;
+                
+               
+                if(ball.y + ball.dy - ballrad < 0 || ball.y + ball.dy + ballrad > HEIGHT)
+                    ball.dy = -ball.dy;
+                
+             
+                ball.x += ball.dx;
+                ball.y += ball.dy;
+            }
+            
+          
+            function clear() {
+                canvas.clearRect(0, 0, 300, 300);
+            }
+            
+           
+            function circle(x, y, radius, color) {
+                canvas.fillStyle = color;
+                canvas.beginPath();
+                canvas.arc(x, y, radius, 0, Math.PI*2, true);
+                canvas.closePath();
+                canvas.fill();
+            }
+            
+         
+            function getRandom( min, max ) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+          
+            setInterval(draw, 10);
+            
+        </script>
+        
+  
+
+   
+
+
+    
+</body>
+</html>
